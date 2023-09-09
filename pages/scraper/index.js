@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-const puppeteer = require('puppeteer');
+
 
 const Maps = () => {
   useEffect(() => {
