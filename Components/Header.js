@@ -50,6 +50,16 @@ function Header() {
               </a>
             </Link>
 
+            <Link href="/scraper">
+              <a
+                className={
+                  router.pathname == "/scraper" ? "active link" : "link"
+                }
+              >
+                Projects
+              </a>
+            </Link>
+
             <Link href="/blogs">
               <a
                 className={router.pathname == "/blogs" ? "active link" : "link"}
