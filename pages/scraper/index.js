@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react';
 const chromium = require('@sparticuz/chromium-min');
 const puppeteer = require('puppeteer-core');
 
