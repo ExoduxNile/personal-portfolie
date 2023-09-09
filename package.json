@@ -10,7 +10,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "puppeteer": "21.1.1",
+    "chrome-aws-lambda":"10.1.0",
+    "playwright-core": "1.37.1",
+    "puppeteer-core": "1.37.1",
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
     "@heroicons/react": "^2.0.10",
@@ -32,7 +34,8 @@
     "react-reveal": "^1.2.2",
     "react-rough-notation": "^1.0.3",
     "react-syntax-highlighter": "^15.5.0",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
+    "@sparticuz/chromium-min":"116.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.8",

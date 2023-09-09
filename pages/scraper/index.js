@@ -1,4 +1,41 @@
 import React, { useEffect } from 'react';
+const chromium = require('@sparticuz/chromium-min');
+const puppeteer = require('puppeteer-core');
+
+let _page;
+
+async function getBrowser() {
+  // local development is broken for this 👇
+  // but it works in vercel so I'm not gonna touch it
+  return puppeteer.launch({
+    args: [...chromium.args, '--hide-scrollbars', '--disable-web-security'],
+    defaultViewport: chromium.defaultViewport,
+    executablePath: await chromium.executablePath(
+      `https://github.com/Sparticuz/chromium/releases/download/v116.0.0/chromium-v116.0.0-pack.tar`
+    ),
+    headless: chromium.headless,
+    ignoreHTTPSErrors: true,
+  });
+}
+
+
+async function getPage() {
+  if (_page) return _page;
+
+  const browser = await getBrowser();
+  _page = await browser.newPage();
+  return _page;
+}
+
+function checkUrl(string) {
+  var url = '';
+  try {
+    url = new URL(string);
+  } catch (error) {
+    return false;
+  }
+  return true;
+}
 
 
 const Maps = () => {
@@ -71,7 +108,17 @@ const Maps = () => {
   return (
     <div>
       <h1>Google Maps Data</h1>
-      {/* Render your data here */}
+      {mapsData.map(item => (
+        <div key={item.id}>
+          <h2>{item.title}</h2>
+          <h2>{item.avg_rating}</h2>
+          <h2>{item.reviews}</h2>
+          <h2>{item.address}</h2>
+          <h2>{item.description}</h2>
+          <h2>{item.website}</h2>
+          <h2>{item.category}</h2>
+        </div>
+      ))}
     </div>
   );
 };
